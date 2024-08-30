@@ -1,3 +1,27 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+        <ion-item [routerDirection]="'root'" [routerLink]="'/principal'">
+          <ion-icon name="heart"></ion-icon>
+          <ion-label>pagina Principal</ion-label>
+        </ion-item>
+        
+        <ion-item [routerDirection]="'root'" [routerLink]="'/productos'">
+          <ion-icon name="bag-add-outline"></ion-icon>
+          <ion-label>Productos</ion-label>
+        </ion-item>
+
+        
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-app>

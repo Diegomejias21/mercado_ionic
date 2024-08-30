@@ -23,6 +23,14 @@ const routes: Routes = [
     path: 'principal',
     loadChildren: () => import('./pages/principal/principal.module').then( m => m.PrincipalPageModule)
   },
+  {
+    path: 'productos',
+    loadChildren: () => import('./pages/productos/productos.module').then( m => m.ProductosPageModule)
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./pages/notfound/notfound.module').then( m => m.NotfoundPageModule)
+  },
 ];
 
 @NgModule({

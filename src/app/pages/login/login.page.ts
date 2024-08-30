@@ -8,9 +8,12 @@ import {Router} from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  ape: string ="Perez";
-  edad: number = 26;
+  admin:any = {
+    usuario:'admin@gmail.com',
+    contraseña:'12341234'
 
+  }
+  
   arregloPersona: any = {
     nombre:'Jose',
     apellido: 'Rodriguez',
