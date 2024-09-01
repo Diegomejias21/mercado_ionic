@@ -3,32 +3,44 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>registrar</ion-title>
+    <ion-title>registro sesion</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <p>registrarse</p>
-  <ion-list>
-    <ion-list>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>registrarse</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="formularioRegistro">
       <ion-item>
-        <ion-input label="Nombre" placeholder="Nombre"></ion-input>
+        <ion-label position= "floating">Nombre:</ion-label>
+        <ion-input formControlName="Nombre"></ion-input>
       </ion-item>
   
       <ion-item>
-        <ion-input label="Contraseña" type="password" value="contraseña"></ion-input>
+        <ion-label position= "floating">Contraseña:</ion-label>
+        <ion-input formControlName="password" type="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position= "floating">Confirmar Contraseña:</ion-label>
+        <ion-input formControlName="confirmacionPassword" type="password"></ion-input>
       </ion-item>
         
       <ion-item>
-        <ion-input label="Telefono" type="tel" placeholder="9-5030-7012"></ion-input>
+        <ion-label position= "floating">Telefono:</ion-label>
+        <ion-input formControlName="Telefono"></ion-input>
       </ion-item>
   
       <ion-item>
-        <ion-input label="Email input" type="email" placeholder="email@domain.com"></ion-input>
-      </ion-item>
-  
-    </ion-list>
-  </ion-list>
-
+        <ion-label position= "floating">Email:</ion-label>
+        <ion-input formControlName="Email"></ion-input>
+       </ion-item>
+      </form>
+    </ion-card-content>
+  </ion-card>
   <ion-button color="warning" (click)="irPagina()">confirmar</ion-button>
 </ion-content>
