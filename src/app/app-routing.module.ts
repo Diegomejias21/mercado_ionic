@@ -31,6 +31,31 @@ const routes: Routes = [
     path: '**',
     loadChildren: () => import('./pages/notfound/notfound.module').then( m => m.NotfoundPageModule)
   },
+  {
+    path: 'acerca',
+    loadChildren: () => import('./pages/acerca/acerca.module').then( m => m.AcercaPageModule)
+  },
+  {
+    path: 'producto1',
+    loadChildren: () => import('./pages/producto1/producto1.module').then( m => m.Producto1PageModule)
+  },
+  {
+    path: 'producto2',
+    loadChildren: () => import('./pages/producto2/producto2.module').then( m => m.Producto2PageModule)
+  },
+  {
+    path: 'producto3',
+    loadChildren: () => import('./pages/producto3/producto3.module').then( m => m.Producto3PageModule)
+  },
+  {
+    path: 'olvido',
+    loadChildren: () => import('./pages/olvido/olvido.module').then( m => m.OlvidoPageModule)
+  },  {
+    path: 'carrito',
+    loadChildren: () => import('./pages/carrito/carrito.module').then( m => m.CarritoPageModule)
+  },
+
+
 ];
 
 @NgModule({

@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title></ion-title>
+    <ion-title>LOGIN</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,20 +11,32 @@
 
 <ion-card>
   <ion-card-header>
-    <ion-card-title>Inicio de Sesion</ion-card-title>
+    <ion-card-title class="login">Inicio de Sesión</ion-card-title>
   </ion-card-header>
   <ion-card-content>
     <form [formGroup]="formularioLogin">
+
+      <div class="Email">
       <ion-item>
         <ion-label position= "floating">Ingrese su Email de usuario</ion-label>
         <ion-input formControlName="Email"></ion-input>
       </ion-item>
+      </div>
+      <br>
+
+      <div class="recordar">
+        <a href="/src/app/pages/olvido/olvido.page.html">¿Olvido su Contraseña?</a>
+      </div>
+      <div class="password">
       <ion-item>
         <ion-label position = "floating">Ingrese su Contraseña de usuario</ion-label>
         <ion-input formControlName="password" type="password"></ion-input>
       </ion-item>
+    </div>
     </form>
+  <div class="boton">
     <ion-button color="medium" slot="end" (click)="irPagina()">Confirmar</ion-button>
+  </div>
   </ion-card-content>
   <p>Este sitio está protegido por Duoc y se aplican las Políticas de privacidad y Condiciones de servicio de Duoc.</p>
 </ion-card>
@@ -33,8 +45,10 @@
 <br>
 
 <ion-card>
+<div class="boton_registro">
 <p>Eres nuevo? registrate aqui</p>
 <ion-button color="primary" (click)="irRegistro()">Registrate</ion-button>
+</div>
 </ion-card>
 </ion-content>
 

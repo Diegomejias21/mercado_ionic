@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { FormGroup,FormControl,Validators,FormBuilder } from '@angular/forms';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -25,9 +25,10 @@ export class LoginPage implements OnInit {
     edad:25
   }
 
-  constructor(private router:Router, public fb: FormBuilder, public alertController: AlertController, ) { 
+  constructor(private router:Router, public fb: FormBuilder, public alertController: AlertController, public navCtrl: NavController ) { 
     
     this.formularioLogin = this.fb.group({
+      'Nombre': new FormControl("",Validators.required),
       'Email': new FormControl("",Validators.required),
       'password': new FormControl("",Validators.required)
     })
@@ -41,26 +42,26 @@ export class LoginPage implements OnInit {
   }
   
   async irPagina(){
-    
-    var f = this.formularioLogin.value;
-    
-    var usuarioString = localStorage.getItem('usuario');
-    var usuario = usuarioString ? JSON.parse(usuarioString) : null;
+    const f = this.formularioLogin.value;
+    const usuarioString = localStorage.getItem('usuario');
 
-    if(usuario.Email == f.Email && usuario.password == f.password){
-      console.log('ingresado');
-    }else{
-      const alert = await this.alertController.create({
-        header: 'Los datos son incorrecots',
-        message: 'Tienes que rellenar los datos de los campos.',
-        buttons: ['Aceptar']
+    if (usuarioString) {
+      const usuario = JSON.parse(usuarioString);
+      
+      if (usuario.Nombre === f.Nombre && usuario.password === f.password && usuario.Email === f.Email) {
+        console.log('Ingresado');
+        localStorage.setItem('Ingresado', 'true');
+        this.navCtrl.navigateRoot('inicio');
+      } else {
+        const alert = await this.alertController.create({
+          header: 'Datos incorrectos',
+          message: 'Los datos que ingresaste son incorrectos',
+          buttons: ['Aceptar']
       });
-  
+
       await alert.present();
     }
-
-
     this.router.navigate(['/principal']);
   }
-
+ }
 }

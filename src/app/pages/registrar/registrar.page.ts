@@ -20,37 +20,26 @@ export class RegistrarPage implements OnInit {
       'confirmacionPassword': new FormControl("",Validators.required),
       'telefono': new FormControl("",Validators.required),
       'Email': new FormControl("",Validators.required)
-    })
+    });
    }
 
   ngOnInit() {
   }
-  
   async irPagina(){
-
-    this.router.navigate(['/principal']);
 
     var f = this.formularioRegistro.value;
 
     if(this.formularioRegistro.invalid){
       const alert = await this.alertController.create({
-        header: 'Datos incompletos',
-        message: 'Tienes que rellenar los datos de los campos.',
+        header:'Datos incorrectos',
+        message: 'Los datos que ingresaste son incorrectos',
         buttons: ['Aceptar']
       });
-  
+      
       await alert.present();
-      return;
-    }
-    
-    var usuario = {
-      Email: f.Email,
-      password: f.password
     }
 
-    localStorage.setItem('usuario',JSON.stringify(usuario));
-
+    this.router.navigate(['/principal']);
+  
   }
-
-
 }
